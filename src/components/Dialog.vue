@@ -44,6 +44,7 @@
             md:w-[60%]
             max-w-[640px] max-h-[90%]
             min-h-[200px]
+            flex
           "
         >
           <slot v-bind="{ close }"></slot>

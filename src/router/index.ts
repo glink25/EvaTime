@@ -1,3 +1,4 @@
+import { themeRoutes } from '@/themes';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
 export const routes: RouteRecordRaw[] = [
@@ -9,11 +10,10 @@ export const routes: RouteRecordRaw[] = [
     path: '/config/:config?',
     component: () => import('@/views/Config.vue'),
   },
-  {
-    path: '/theme/skyline/:config?',
-    component: () => import('@/views/Home.vue'),
-  },
+  ...themeRoutes,
   { path: '/:pathMatch(.*)*', name: 'NotFound', redirect: '/config' },
 ];
+
+console.log(routes);
 
 export const router = createRouter({ routes, history: createWebHashHistory() });

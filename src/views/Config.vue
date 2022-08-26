@@ -37,7 +37,16 @@
       </div>
     </div>
   </div>
+  <div class="w-full flex justify-center pb-4 fixed bottom-0">
+    <button
+      class="btn-primary rounded-[50px] px-[20px]"
+      @click="showThemeSwitcher"
+    >
+      Switch Theme
+    </button>
+  </div>
   <ThingEditor />
+  <ThemeSwitcher v-model:visible="themeSwitcherVisible" />
   <Message />
 </template>
 <script lang="ts" setup>
@@ -46,6 +55,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useConfig, ThingStatus } from '@/store/config';
 import { ThingEditor, useThingEditor } from '@/components/ThingEditor';
 import { Message } from '@/components/Message';
+import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import { minuteToTime } from '@/utils/time';
 
 const route = useRoute();
@@ -81,5 +91,10 @@ const generateWorkingBackground = (thing: Thing) => {
   }
   if (thing.workingStatus === ThingStatus.Unreach) return UNREACH_COLOR;
   if (thing.workingStatus === ThingStatus.Passed) return PASSED_COLOR;
+};
+
+const themeSwitcherVisible = ref(false);
+const showThemeSwitcher = () => {
+  themeSwitcherVisible.value = true;
 };
 </script>

@@ -14,6 +14,19 @@ body {
   height: 100vh;
   min-width: 200px;
   min-height: 200px;
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #0003;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
 }
 #app {
   width: 100%;
